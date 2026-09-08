@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Logo from "../ui/Logo";
 import { navLinks } from "../../data/content";
 
 export default function Navbar() {
@@ -10,6 +9,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -18,7 +18,10 @@ export default function Navbar() {
     <motion.header
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-charcoal-900/80 backdrop-blur-xl border-b border-white/10 py-3"
@@ -26,8 +29,26 @@ export default function Navbar() {
       }`}
     >
       <nav className="section-padding flex items-center justify-between">
-        <Logo />
+        {/* Brand */}
+        <a
+          href="/"
+          className="flex items-center gap-2.5 shrink-0"
+          aria-label="Malancha Cultural Studioz"
+        >
+          <img
+            src="/LogoHeader.png"
+            alt="Malancha Logo"
+            className="w-11 h-11 object-contain"
+          />
 
+          <img
+            src="/BrandName.png"
+            alt="Malancha Cultural Studioz"
+            className="h-10 w-auto object-contain"
+          />
+        </a>
+
+        {/* Desktop Navigation */}
         <ul className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -36,12 +57,14 @@ export default function Navbar() {
                 className="text-sm font-medium text-charcoal-200 hover:text-primary transition-colors duration-300 relative group"
               >
                 {link.label}
+
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
         </ul>
 
+        {/* Join Us */}
         <a
           href="#contact"
           className="hidden lg:inline-flex btn-primary !px-6 !py-2.5 !text-sm"
@@ -49,6 +72,7 @@ export default function Navbar() {
           Join Us
         </a>
 
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setOpen(!open)}
           className="lg:hidden text-white p-2"
@@ -58,6 +82,7 @@ export default function Navbar() {
         </button>
       </nav>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -79,6 +104,7 @@ export default function Navbar() {
                   </a>
                 </li>
               ))}
+
               <li>
                 <a
                   href="#contact"

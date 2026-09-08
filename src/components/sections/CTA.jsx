@@ -23,7 +23,9 @@ export default function CTA() {
 
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
           Become a part of the{" "}
-          <span className="text-gradient-gold">Malancha family</span>
+          <span className="text-gradient-gold">
+            Malancha cultural Studioz family
+          </span>
         </h2>
 
         <p className="mt-6 text-lg text-charcoal-300 leading-relaxed">
