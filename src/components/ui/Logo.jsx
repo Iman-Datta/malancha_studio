@@ -33,7 +33,7 @@ export default function Logo({ className = "", showText = true }) {
             MALANCHA
           </p>
           <p className="text-[10px] font-semibold tracking-[0.3em] text-primary uppercase">
-            Cultural Studioz
+            Cultural Studioz | Kolkata
           </p>
         </div>
       )}

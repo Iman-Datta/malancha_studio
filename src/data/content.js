@@ -105,12 +105,12 @@ export const galleryImages = [
 
 export const socials = [
   { label: "Facebook", icon: "facebook", href: "#" },
-  { label: "Instagram", icon: "instagram", href: "#" },
+  { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/malancha_viibes798?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" },
   { label: "YouTube", icon: "youtube", href: "#" },
-  { label: "Twitter", icon: "twitter", href: "#" },
+  { label: "Twitter", icon: "twitter", href: "" },
 ];
 
 export const contactInfo = {
-  phone: "+91 62914 29383",
-  email: "malanchaculturalstudioz@gmail.com",
+  phone: "+91 6291 429 383",
+  email: "demo@gmail.com",
 };
