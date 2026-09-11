@@ -112,5 +112,5 @@ export const socials = [
 
 export const contactInfo = {
   phone: "+91 6291 429 383",
-  email: "demo@gmail.com",
+  email: "malanchaculturalstudioz@gmail.com",
 };
