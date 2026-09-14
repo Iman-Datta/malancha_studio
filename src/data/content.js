@@ -66,7 +66,7 @@ export const whatWeDo = [
 
 export const services = [
   { title: "Music Classes", icon: Music2, desc: "Learn vocals and instruments from seasoned musicians." },
-  { title: "Dance Classes", icon: Music3, desc: "From classical to contemporary — express through movement." },
+  { title: "Dance Classes", icon: Music3, desc: "From classical to contemporary express through movement." },
   { title: "Photography", icon: Camera, desc: "Master the art of visual storytelling with your lens." },
   { title: "Video Editing", icon: Video, desc: "Transform raw footage into cinematic masterpieces." },
   { title: "Live Band", icon: Users, desc: "Energetic live bands for events, weddings and concerts." },
@@ -81,7 +81,7 @@ export const whyChooseUs = [
   { title: "Creative Community", icon: Users, desc: "Join a thriving network of artists, creators and culture enthusiasts." },
   { title: "Personalized Guidance", icon: HandHeart, desc: "Tailored mentorship that adapts to your unique creative journey." },
   { title: "Opportunities for Artists", icon: TrendingUp, desc: "Real platforms, real stages and real audiences for your talent." },
-  { title: "Events Across India", icon: MapPin, desc: "From metro stages to cultural hubs — we perform everywhere." },
+  { title: "Events Across India", icon: MapPin, desc: "From metro stages to cultural hubs we perform everywhere." },
   { title: "Professional Promotion", icon: Headphones, desc: "Get the spotlight you deserve with our dedicated promotion team." },
 ];
 

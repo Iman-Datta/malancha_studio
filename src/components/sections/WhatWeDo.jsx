@@ -23,7 +23,7 @@ export default function WhatWeDo() {
       <SectionHeading
         eyebrow="Our Journey"
         title="A journey shaped by culture, creativity & community"
-        subtitle="From cultural competitions and festivals to a studio of our own — here's how Malancha grew."
+        subtitle="From cultural competitions and festivals to a studio of our own here's how Malancha grew."
       />
 
       <div className="relative mt-16">

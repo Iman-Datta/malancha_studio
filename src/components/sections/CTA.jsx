@@ -29,7 +29,7 @@ export default function CTA() {
         </h2>
 
         <p className="mt-6 text-lg text-charcoal-300 leading-relaxed">
-          Whether you're an artist, a learner or a culture enthusiast — there's
+          Whether you're an artist, a learner or a culture enthusiast  there's
           a place for you here. Let's create something extraordinary together.
         </p>
 

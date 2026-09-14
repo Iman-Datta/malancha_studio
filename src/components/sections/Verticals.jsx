@@ -57,7 +57,7 @@ export default function Verticals() {
             Ten Worlds of <span className="text-gradient-gold">Creativity</span>
           </>
         }
-        subtitle="Every art form finds a home at Malancha — explore the diverse creative verticals we nurture."
+        subtitle="Every art form finds a home at Malancha explore the diverse creative verticals we nurture."
       />
 
       <motion.div

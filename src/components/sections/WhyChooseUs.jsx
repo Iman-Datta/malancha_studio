@@ -18,7 +18,7 @@ export default function WhyChooseUs() {
             The Malancha <span className="text-gradient-gold">Advantage</span>
           </>
         }
-        subtitle="We go beyond classes — we build careers, communities and cultural legacies."
+        subtitle="We go beyond classes we build careers, communities and cultural legacies."
       />
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

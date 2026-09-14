@@ -18,7 +18,7 @@ export default function Services() {
             What We <span className="text-secondary-500">Offer</span>
           </>
         }
-        subtitle="Professional classes, studio services and creative solutions — tailored for every artist's journey."
+        subtitle="Professional classes, studio services and creative solutions tailored for every artist's journey."
         light
       />
 

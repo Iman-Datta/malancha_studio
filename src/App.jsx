@@ -11,7 +11,6 @@ import Mission from "./components/sections/Mission";
 import Statistics from "./components/sections/Statistics";
 import CTA from "./components/sections/CTA";
 import Contact from "./components/sections/Contact";
-import "./App.css";
 
 function App() {
   return (
@@ -20,8 +19,8 @@ function App() {
       <main>
         <Hero />
         <About />
-        <Verticals />
         <WhatWeDo />
+        <Verticals />
         <Services />
         <WhyChooseUs />
         <Gallery />
