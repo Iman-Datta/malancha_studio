@@ -16,7 +16,7 @@ export default function WhatWeDo() {
 
   return (
     <SectionWrapper
-      id="our-journey"
+      id="journey"
       bg="bg-charcoal-900"
       className="section-padding py-24 md:py-32"
     >
@@ -31,7 +31,6 @@ export default function WhatWeDo() {
         <div className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-20 bg-gradient-to-r from-charcoal-900 to-transparent z-20" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-20 bg-gradient-to-l from-charcoal-900 to-transparent z-20" />
 
-        {/* scroll button — left */}
         <button
           type="button"
           onClick={() => scrollBy(-1)}
@@ -41,7 +40,6 @@ export default function WhatWeDo() {
           <ChevronLeft size={20} />
         </button>
 
-        {/* scroll button — right */}
         <button
           type="button"
           onClick={() => scrollBy(1)}

@@ -51,7 +51,7 @@ export default function Gallery() {
             Moments in <span className="text-gradient-gold">Motion</span>
           </>
         }
-        subtitle="A glimpse into the vibrant world of Malancha — performances, workshops and cultural celebrations."
+        subtitle="A glimpse into the vibrant world of Malancha performances, workshops and cultural celebrations."
       />
 
       <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-4">

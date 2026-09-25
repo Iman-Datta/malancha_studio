@@ -8,8 +8,6 @@ import Services from "./components/sections/Services";
 import WhyChooseUs from "./components/sections/WhyChooseUs";
 import Gallery from "./components/sections/Gallery";
 import Mission from "./components/sections/Mission";
-import Statistics from "./components/sections/Statistics";
-import CTA from "./components/sections/CTA";
 import Contact from "./components/sections/Contact";
 
 function App() {

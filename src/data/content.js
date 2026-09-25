@@ -31,11 +31,14 @@ import {
 } from "lucide-react";
 
 export const navLinks = [
+  { label: "Home", href: "/" },
   { label: "About", href: "#about" },
+  { label: "Our journey", href: "#journey" },
   { label: "Verticals", href: "#verticals" },
-  { label: "What We Do", href: "#what-we-do" },
   { label: "Services", href: "#services" },
+  { label: "Why Us", href: "#why-choose-us" },
   { label: "Gallery", href: "#gallery" },
+  { label: "Mission", href: "#mission" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -209,13 +212,6 @@ export const whyChooseUs = [
   },
 ];
 
-export const stats = [
-  { value: "100+", label: "Events Delivered", icon: PartyPopper },
-  { value: "10+", label: "Cultural Verticals", icon: Sparkles },
-  { value: "500+", label: "Artists Supported", icon: Users },
-  { value: "24/7", label: "Online & Offline Presence", icon: Smartphone },
-];
-
 // data/content.js or wherever your content data resides
 
 export const galleryImages = [
@@ -261,11 +257,12 @@ export const socials = [
     icon: "instagram",
     href: "https://www.instagram.com/malancha_viibes798?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==",
   },
-  { label: "YouTube", icon: "youtube", href: "#" },
-  { label: "Twitter", icon: "twitter", href: "" },
 ];
 
 export const contactInfo = {
+  address:
+    "Nischinda Paschim Para, Bally, Howrah (Between Bally Halt & Rajchandrapur)",
   phone: "+91 6291 429 383",
+  secondaryPhone: "+91 79804 47349",
   email: "malanchaculturalstudioz@gmail.com",
 };
