@@ -25,8 +25,6 @@ function App() {
         <WhyChooseUs />
         <Gallery />
         <Mission />
-        <Statistics />
-        <CTA />
         <Contact />
       </main>
       <Footer />
