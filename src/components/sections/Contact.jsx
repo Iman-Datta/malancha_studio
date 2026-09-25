@@ -12,7 +12,7 @@ import SectionWrapper from "../ui/SectionWrapper";
 import SectionHeading from "../ui/SectionHeading";
 
 // Replace these placeholders with your actual keys from EmailJS
-const EMAILJS_SERVICE_ID = "service_1wl4xyq";
+const EMAILJS_SERVICE_ID = "service_1u0rabk";
 const EMAILJS_TEMPLATE_ID = "template_xc80xw8";
 const EMAILJS_PUBLIC_KEY = "uhKp3BPri3s9npiMj";
 
