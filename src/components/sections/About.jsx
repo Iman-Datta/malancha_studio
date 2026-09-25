@@ -13,7 +13,7 @@ const pillars = [
 const images = [
   { src: "/about/img1.jpg", alt: "Cultural Performance 1" },
   { src: "/about/img2.jpg", alt: "Cultural Performance 2" },
-  { src: "/about/img3.jpg", alt: "Cultural Performance 3" },
+  { src: "/about/4.jpeg", alt: "Cultural Performance 3" },
   { src: "/about/img4.jpg", alt: "Cultural Performance 4" },
   { src: "/about/img5.jpg", alt: "Cultural Performance 5" },
 ];
