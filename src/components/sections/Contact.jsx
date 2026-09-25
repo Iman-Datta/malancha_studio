@@ -1,20 +1,26 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle2, Sparkles, MessageSquare } from "lucide-react";
+import {
+  Send,
+  CheckCircle2,
+  Sparkles,
+  MessageSquare,
+  AlertCircle,
+} from "lucide-react";
+import emailjs from "@emailjs/browser";
 import SectionWrapper from "../ui/SectionWrapper";
 import SectionHeading from "../ui/SectionHeading";
 
-const INQUIRY_TYPES = [
-  "General Inquiry",
-  "Collaboration",
-  "Join the Studio",
-  "Event Booking",
-];
+// Replace these placeholders with your actual keys from EmailJS
+const EMAILJS_SERVICE_ID = "service_1wl4xyq";
+const EMAILJS_TEMPLATE_ID = "template_xc80xw8";
+const EMAILJS_PUBLIC_KEY = "uhKp3BPri3s9npiMj";
 
 export default function Contact() {
-  const [selectedTopic, setSelectedTopic] = useState("General Inquiry");
+  const formRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,16 +30,31 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage("");
 
-    // Simulate API request delay
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 1200);
+    emailjs
+      .sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY,
+      )
+      .then(
+        () => {
+          setIsSubmitting(false);
+          setIsSubmitted(true);
+        },
+        (error) => {
+          setIsSubmitting(false);
+          console.error("FAILED...", error);
+          setErrorMessage("Failed to send message. Please try again later.");
+        },
+      );
   };
 
   const handleReset = () => {
     setIsSubmitted(false);
+    setErrorMessage("");
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -54,7 +75,6 @@ export default function Contact() {
       />
 
       <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto items-stretch">
-        {/* Left Side: Brand Highlight & Creative Prompt */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -62,7 +82,6 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="lg:col-span-5 flex flex-col justify-between glass-card p-8 space-y-8 border border-white/10 rounded-2xl relative overflow-hidden bg-gradient-to-b from-charcoal-900/80 to-charcoal-900/30"
         >
-          {/* Decorative Glow */}
           <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 space-y-4">
@@ -96,7 +115,6 @@ export default function Contact() {
           </div>
         </motion.div>
 
-        {/* Right Side: Contact Form */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -107,36 +125,13 @@ export default function Contact() {
           <AnimatePresence mode="wait">
             {!isSubmitted ? (
               <motion.form
+                ref={formRef}
                 key="form"
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0, y: -20 }}
                 onSubmit={handleSubmit}
                 className="space-y-6"
               >
-                {/* Topic Pills */}
-                <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold text-charcoal-400 mb-3">
-                    What are you reaching out for?
-                  </label>
-                  <div className="flex flex-wrap gap-2">
-                    {INQUIRY_TYPES.map((topic) => (
-                      <button
-                        key={topic}
-                        type="button"
-                        onClick={() => setSelectedTopic(topic)}
-                        className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300 ${
-                          selectedTopic === topic
-                            ? "bg-primary text-charcoal-900 shadow-md shadow-primary/20 scale-105"
-                            : "bg-charcoal-900/60 text-charcoal-300 hover:bg-charcoal-700 hover:text-white border border-white/5"
-                        }`}
-                      >
-                        {topic}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Form Inputs */}
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-medium text-charcoal-300 mb-2">
@@ -144,6 +139,7 @@ export default function Contact() {
                     </label>
                     <input
                       type="text"
+                      name="from_name"
                       required
                       value={formData.name}
                       onChange={(e) =>
@@ -160,6 +156,7 @@ export default function Contact() {
                     </label>
                     <input
                       type="email"
+                      name="from_email"
                       required
                       value={formData.email}
                       onChange={(e) =>
@@ -176,21 +173,29 @@ export default function Contact() {
                     Message
                   </label>
                   <textarea
-                    rows={4}
+                    rows={5}
+                    name="message"
                     required
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    placeholder={`Tell us about your ${selectedTopic.toLowerCase()} request...`}
+                    placeholder="Tell us about your project or inquiry..."
                     className="w-full px-4 py-3 rounded-xl bg-charcoal-900/60 border border-white/10 text-white placeholder-charcoal-500 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors resize-none"
                   />
                 </div>
 
+                {errorMessage && (
+                  <div className="flex items-center gap-2 text-red-400 text-xs bg-red-500/10 border border-red-500/20 p-3 rounded-xl">
+                    <AlertCircle size={16} />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary w-full py-4 flex items-center justify-center gap-2 group text-base font-semibold transition-all"
+                  className="btn-primary w-full py-4 flex items-center justify-center gap-2 group text-base font-semibold transition-all disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <span className="inline-block w-5 h-5 border-2 border-charcoal-900 border-t-transparent rounded-full animate-spin" />
@@ -206,7 +211,6 @@ export default function Contact() {
                 </button>
               </motion.form>
             ) : (
-              /* Success State */
               <motion.div
                 key="success"
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -218,11 +222,8 @@ export default function Contact() {
                 </div>
                 <h3 className="text-2xl font-bold text-white">Message Sent!</h3>
                 <p className="text-sm text-charcoal-400 max-w-sm mx-auto leading-relaxed">
-                  Thank you for reaching out regarding{" "}
-                  <span className="text-primary font-medium">
-                    {selectedTopic}
-                  </span>
-                  . Our team will get back to you shortly.
+                  Thank you for reaching out. Your message has been sent
+                  successfully, and our team will get back to you shortly.
                 </p>
                 <button
                   onClick={handleReset}
